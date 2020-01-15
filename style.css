@@ -1,5 +1,4 @@
-html,
-a {
+* {
   cursor: none;
 }
 
@@ -7,44 +6,54 @@ body {
   background-color: #ccc;
 }
 
-#circle-big {
-  display: block;
-  position: absolute;
-  margin-top: -14px;
-  margin-left: -14px;
-  transition: all 0.3s linear;
-  width: 27px;
-  height: 27px;
-  z-index: -1;
-  text-align: center;
-  border: 0.5px solid #fff;
-  border-radius: 50%;
-}
-
-#circle {
-  display: block;
-  position: absolute;
-  margin: auto;
-  width: 10px;
-  height: 10px;
-  margin-top: -5px;
-  margin-left: -5px;
-  background-color: rgba(255, 255, 255);
-  border-radius: 50%;
-  z-index: -1;
-}
-
-#cursor.on-link #circle-big {
-  border: 0.5px solid #ff0000;
-  margin-top: -20px;
-  margin-left: -20px;
-  width: 40px;
-  height: 40px;
-}
-
 a {
   font-size: 26px;
   text-align: center;
   margin: 100px auto;
   display: block;
+} 
+
+.cursor, .cursor-follower {
+  -webkit-transform: translateX(-100px) translateY(-100px);
+  transform: translateX(-100px) translateY(-100px);
 }
+
+.cursor {
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-follower {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: 0.2s ease-out;
+  will-change: all;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-inner {
+  z-index: 9999;
+  pointer-events: none!important; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  mix-blend-mode: difference;
+  border-radius: 50%;
+}
+
+#mouse-cursor.on-link .cursor-follower {
+  border: 0.5px solid #ff0000;
+  width: 40px;
+  height: 40px;
+}
+
+

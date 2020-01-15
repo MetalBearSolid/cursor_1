@@ -1,22 +1,17 @@
-$("body").mouseover(function() {
-  $(this).css({
-    cursor: "none"
+$(document).mousemove(function (e) {
+  $("#cursor").css({
+    left: e.pageX + "px",
+    top: e.pageY + "px"
   });
-});
+  $("#cursorFollow").css({
+    left: e.pageX + "px",
+    top: e.pageY + "px"
+  });
 
-$(document).on("mousemove", function(e) {
-  $("#circle-big").css({
-    left: e.pageX,
-    top: e.pageY
-  });
-  $("#circle").css({
-    left: e.pageX,
-    top: e.pageY
-  });
-});
-$("a").mouseover(function() {
-  $("#cursor").addClass("on-link");
-});
-$("a").mouseout(function() {
-  $("#cursor").removeClass("on-link");
+  $('a').mouseover(function () {
+    $('#mouse-cursor').addClass('on-link');
+  })
+  $('a').mouseout(function () {
+    $('#mouse-cursor').removeClass('on-link');
+  })
 });
